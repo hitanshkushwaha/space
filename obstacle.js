@@ -3,13 +3,15 @@ class Obstacle{
         var options={
             restitution:0.4,
             isStatic:false
+           
         }
        
       
-       this.body = Bodies.rectangle(x,y,200,200,options);
+       this.body = Bodies.rectangle(x,y,100,100,options);
        World.add(world,this.body);
-       this.h=200;
-       this.w=200;
+       this.h=100;
+       this.w=100;
+       
        this.image=loadImage("images/asteroid31.png")
       
 
@@ -25,6 +27,25 @@ class Obstacle{
        
         
        
+
+
+
+     var collision=Matter.SAT.collides(spaceship.body,this.body)
+     if(collision.collided){
+       flag=1
+
+    
+
+
+     
+    }
+if(flag===1){
+    gameState="END"
+    crashsound.play()
+
+}
+
+
 
     }
 
